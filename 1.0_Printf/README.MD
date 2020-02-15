@@ -32,3 +32,12 @@ Lundi 10/02:
 	Terminé pour le convert, j'ai encore du mal avec la fonction "itoa_base", j'ai de nouveau du utiliser la méthode que j'ai utilisé en piscine et ça ne me convient guère.
 	
 	J'ai mis mon convert_base dans la libft directement et le Makefile de ce dernier est à jour. Je trouve ça moyennement propre, cependant.
+
+	J'ai vu un peu les va_arg, c'est pas si compliqué mais ça reste selon moi totalement dégueulasse comme méthode. Dommage que ce soit la seule. 
+	Je me lance dans un début de "fonction principale" pour printf.
+
+_____________________________________________
+
+Mardi 11/02:
+
+	Fini une fonction pour compter le nombre de conversions. 

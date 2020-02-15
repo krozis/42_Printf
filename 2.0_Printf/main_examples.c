@@ -6,11 +6,12 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 09:39:57 by stelie            #+#    #+#             */
-/*   Updated: 2020/02/10 16:31:23 by stelie           ###   ########.fr       */
+/*   Updated: 2020/02/15 09:20:17 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
+#include "includes/convert_base.h"
 
 int		main(void)
 {
@@ -21,9 +22,7 @@ int		main(void)
 	unsigned int	hexa = 2309737967;
 	float			f = 42.41;
 	
-	//printf("\033[01;35m"); // POUR CHANGER LA COULEUR DE POLICE. PAS DANS LES BONUS DEMANDES.
-	printf("%s\n", convert_base("101010453", BASE10, HEXADECIMAL));
-		
+	printf("%d\n", printf("Hello %S %s this %5ls is big %-S", L"Tim®", " arg ", L"this\0is", L"Ω≈ç√∫˜µ"));
 	/*
 	printf("--------------------------------------\n");
 	printf("FLAGS OBLIGATOIRES : c s p d i u x X %%\n--------------------------------------\n\n");
