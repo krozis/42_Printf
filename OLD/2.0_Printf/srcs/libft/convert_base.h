@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   convert_base.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2020/02/09 14:29:34 by stelie            #+#    #+#             */
+/*   Updated: 2020/02/10 15:53:38 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef CONVERT_BASE_H
+# define CONVERT_BASE_H
+
+# include "libft.h"
+
+# define ERROR -1
 
 
-int		ft_printf(const char *str, ...)
-{
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
-
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
 
 
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
-	return (0);
-}
+#endif

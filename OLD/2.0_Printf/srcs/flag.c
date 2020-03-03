@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   flag.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2020/02/06 16:06:12 by stelie            #+#    #+#             */
+/*   Updated: 2020/02/06 16:56:04 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-
-int		ft_printf(const char *str, ...)
+t_bool	is_flag(char c, char *flagset)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
-
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
-	return (0);
+	while(*flagset)
+	{
+		if (c == *flagset)
+			return (TRUE);
+		flagset++;
+	}
+	return (FALSE);
 }

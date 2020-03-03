@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2020/02/10 13:06:53 by stelie            #+#    #+#             */
+/*   Updated: 2020/02/10 13:06:54 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-
-int		ft_printf(const char *str, ...)
+unsigned int	ft_power(long nb, int power)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
+	int i;
+	int res;
 
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	i = 0;
+	res = 1;
+	while (++i <= power)
+		res = res * nb;
 	return (res);
-	*/
-
-	printf("\n| WESH |\n");
-	return (0);
 }

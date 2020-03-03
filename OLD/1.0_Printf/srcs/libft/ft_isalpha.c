@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stelie <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2019/11/04 12:52:06 by stelie            #+#    #+#             */
+/*   Updated: 2019/11/04 13:08:59 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-
-int		ft_printf(const char *str, ...)
+int	ft_isalpha(int c)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
-
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
+	if ((c > 64 && c < 91) || (c > 96 && c < 123))
+		return (1);
 	return (0);
 }

@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2020/02/06 14:39:41 by stelie            #+#    #+#             */
+/*   Updated: 2020/02/06 17:24:11 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
+#include "../includes/ft_printf.h"
 
 int		ft_printf(const char *str, ...)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
+	int			i;
+	static int	count = 0;
 
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
-	return (0);
+	i = 0;
+	while (str[i])
+	{
+		while (str[i] && str[i] != '%')
+		{
+			count = ft_putchar_fd_count(str[i], 1, count);
+			i++;
+		}
+		while (str[i] && str[i] != '%')
+	 }
+	
+	printf("\nRetour = %i\n", count);
+	return (count);
 }

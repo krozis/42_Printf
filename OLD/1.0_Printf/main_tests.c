@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main_tests.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2020/02/04 13:45:49 by stelie            #+#    #+#             */
+/*   Updated: 2020/02/05 11:20:11 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "includes/ft_printf.h"
+#include "includes/libft.h"
 
-
-int		ft_printf(const char *str, ...)
+void	test(char *phrase, ...)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
+	int somme = 0;
+	va_list ap;
+	
+}
 
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
+int		main(void)
+{
+	test("La somme vaut :", 1, 2, 3, 6, 12);
 	return (0);
 }

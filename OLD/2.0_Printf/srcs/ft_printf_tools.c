@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_tools.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2020/02/11 12:02:37 by stelie            #+#    #+#             */
+/*   Updated: 2020/02/11 12:08:22 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-int		ft_printf(const char *str, ...)
+int		count_conv(const char *str)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
+	int	count;
+	int	i;
 
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
-	return (0);
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == '%')
+		{
+			i++;
+			while (str[i] && str[i] == ' ')
+				i++;
+			if (str[i] && str[i] == '%')
+				i++;
+			else
+				count++;
+		}
+		i++;
+	}
+	return (count);
 }

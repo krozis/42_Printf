@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2019/11/05 16:41:57 by stelie            #+#    #+#             */
+/*   Updated: 2019/11/10 18:53:26 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-
-int		ft_printf(const char *str, ...)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
+	size_t	i;
+	size_t	lendest;
 
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
-	return (0);
+	i = 0;
+	lendest = ft_strlen(dst);
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	if (lendest > dstsize - 1)
+		return (dstsize + ft_strlen(src));
+	while (src[i] && i + lendest < dstsize - 1)
+	{
+		dst[i + lendest] = src[i];
+		i++;
+	}
+	dst[i + lendest] = '\0';
+	return (ft_strlen(src) + lendest);
 }

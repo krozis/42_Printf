@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/03 14:44:44 by stelie           ###   ########.fr       */
+/*   Created: 2020/02/06 14:46:48 by stelie            #+#    #+#             */
+/*   Updated: 2020/02/06 16:02:13 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-
-int		ft_printf(const char *str, ...)
+int	main(void)
 {
-/*	int		res;
-	t_obj	obj;
-	va_list	ap;
-
-	if (!str)
-		return (ERROR);
-	ft_bzero(&obj, sizeof(t_obj));
-
-
-	ft_bzero(&obj, sizeof(t_obj));
-	return (res);
-	*/
-
-	printf("\n| WESH |\n");
+	char *s = NULL;
+	
+	//printf("REAL : %i ", printf("%s\n", s));
+	ft_printf("Catalogue de %fringues");
+	printf("Taille = %i", printf("Catalogue de \n"));
 	return (0);
 }

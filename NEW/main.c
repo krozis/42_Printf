@@ -1,7 +1,9 @@
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
+
 
 int main(void)
 {
-    ft_printf();
+    printf("|-- res = %i --|\n", ft_printf("endive%%"));
+   
     return (0);
 }
