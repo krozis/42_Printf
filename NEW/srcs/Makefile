@@ -25,6 +25,8 @@ clean:
 
 fclean:		clean
 			${RM} $(NAME)
+			${RM} ../${NAME}
+			${RM} ../*.h
 
 re:			fclean all
 

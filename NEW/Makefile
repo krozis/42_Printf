@@ -10,12 +10,12 @@ ${NAME}:
 all:		${NAME}
 
 clean:
-			${RM} srcs/*.o
+			make clean -C srcs/
 
-fclean:		clean
-			${RM} $(NAME)
-			${RM} *.h
+fclean:		
+			make fclean -C srcs/
 
 re:			fclean all
-
+			${RM} a.out
+			
 .PHONY:		all clean fclean re
