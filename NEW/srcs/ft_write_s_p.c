@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_percent.c                                 :+:      :+:    :+:   */
+/*   ft_write_s_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 14:54:09 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/04 15:07:07 by stelie           ###   ########.fr       */
+/*   Created: 2020/03/05 11:25:40 by stelie            #+#    #+#             */
+/*   Updated: 2020/03/05 11:45:27 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_bool	ft_parse_percent(t_obj *obj)
+void	ft_write_s_p(t_obj *obj, char *str)
 {
-	if (obj->str[obj->idx] == '%')
+	while (*str && *str != '\0' && obj->prec)
 	{
-		ft_putchar_fd('%', 1);
+		ft_putchar_fd(*str, 1);
+		str++;
 		obj->printed_c++;
-		return (TRUE);
+		obj->prec--;
 	}
-	return (FALSE);
 }

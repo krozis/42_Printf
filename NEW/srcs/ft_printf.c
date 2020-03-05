@@ -6,7 +6,7 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:44:43 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/05 00:38:45 by stelie           ###   ########.fr       */
+/*   Updated: 2020/03/05 09:54:14 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_pf_read(t_obj *obj, va_list ap)
 		if (obj->str[obj->idx] == '%')
 		{
 			obj->idx++;
-			obj->ret = ft_parse(obj);
+			obj->ret = ft_parse(obj, ap);
 			if (obj->ret == TRUE)
 				ft_pf_write(obj, ap);
 		}
