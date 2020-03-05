@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    printf("|-- res = %i --|\n", ft_printf("endive%+-1test"));
+    printf("\n|-- res = %i --|\n", ft_printf("endive%21c%s%ctest", ' ', "de", ' '));
    
     return (0);
 }
