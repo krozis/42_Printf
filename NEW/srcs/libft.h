@@ -16,5 +16,6 @@ void	ft_bzero(void *s, size_t n);
 t_bool	ft_in_charset(char *charset, char c);
 t_bool	ft_isdigit(int c);
 int		ft_mini_atoi(const char *str);
+char	*ft_itoa(int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 09:30:46 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/05 13:49:27 by stelie           ###   ########.fr       */
+/*   Updated: 2020/03/05 15:28:56 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ void	ft_write_s_w_p(t_obj *obj, char *str);			//OK
 void	ft_write_s_w_p_minus(t_obj *obj, char *str);	//OK
 
 void	ft_write_di(t_obj *obj, va_list ap);
+char	*ft_write_di_mini(t_obj *obj, va_list ap);
+char	*ft_write_di_w(t_obj *obj, va_list ap);
 
 #endif
