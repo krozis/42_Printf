@@ -6,7 +6,7 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 09:30:46 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/10 17:13:47 by stelie           ###   ########.fr       */
+/*   Updated: 2020/03/12 17:40:41 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ typedef struct	s_obj
 	const char	*str;		//l'argument obligatoire donné par l'usager
 	size_t		idx;		//index de placement dans la str
 	t_bool		flag[5];	//flags (-0+ #)
-//	t_bool		modif[4];     BONUS PART
 	int			ret;
 	int			width;		//precision avec * ou chiffres
 	int			prec;		//precision avec .
 	int			size;		//taille qu'on va imprimer
 	char		conv;		//type de conversion (csdiouxX)
 	size_t		printed_c;	//nb de char affichés
+	//	t_bool		modif[4];     BONUS PART
 }				t_obj;
 
 int		ft_printf(const char *, ...);
@@ -81,8 +81,9 @@ void	ft_write_s_w_p_minus(t_obj *obj, char *str);	//OK
 
 void	ft_write_di(t_obj *obj, va_list ap);			
 char	*ft_write_di_mini(t_obj *obj, va_list ap);		//OK
-char	*ft_write_di_w(t_obj *obj, va_list ap);
-char	*ft_write_di_w_z(t_obj *obj, va_list ap);		
-char	*ft_write_di_w_min(t_obj *obj, va_list ap);
+char	*ft_write_di_w(t_obj *obj, va_list ap);			//OK
+char	*ft_write_di_w_z(t_obj *obj, va_list ap);		//OK
+char	*ft_write_di_w_min(t_obj *obj, va_list ap);		//OK
+char	*ft_write_di_p(t_obj *obj, va_list ap);			
 
 #endif

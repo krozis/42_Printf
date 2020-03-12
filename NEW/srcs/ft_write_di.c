@@ -6,7 +6,7 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 13:48:45 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/10 17:13:27 by stelie           ###   ########.fr       */
+/*   Updated: 2020/03/12 17:58:45 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_write_di(t_obj *obj, va_list ap)
 	}
 	free(str);
 */
+	//printf("prec = %i, width = %i, conv = %c", obj->prec, obj->width, obj->conv);
 	if (!obj->prec)
 	{
 		if (!obj->width)
@@ -56,8 +57,14 @@ void	ft_write_di(t_obj *obj, va_list ap)
 			str = ft_write_di_w(obj, ap);
 		else if (!obj->flag[MINUS] && obj->flag[ZERO])
 			str = ft_write_di_w_z(obj, ap);
-		/*else
-			str = ft_write_di_w_min(obj, ap);*/
+		else
+			str = ft_write_di_w_min(obj, ap);
 	}
-
+	else
+	{
+		if (!obj->width)
+			str = ft_write_di_p(obj, ap);
+	}
+	
+	free(str);
 }

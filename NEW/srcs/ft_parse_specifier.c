@@ -6,7 +6,7 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 13:24:11 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/05 13:46:07 by stelie           ###   ########.fr       */
+/*   Updated: 2020/03/12 17:57:10 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static void	ft_parse_prec(t_obj *obj, va_list ap)
 	}
 	else
 	{
-		obj->idx++;
-		obj->prec = ft_mini_atoi(obj->str + obj->idx);
+		obj->prec = ft_mini_atoi((obj->str) + obj->idx);
 		while (ft_isdigit(obj->str[obj->idx]) && obj->str[obj->idx] != '\0')
 			obj->idx++;
 	}

@@ -7,8 +7,8 @@ int main(void)
     char    c = 't';
     char    *str = "tester";
 
-    printf("\n|--MY res = %i --|\n", ft_printf("|%-12d|", i));
-    printf("\n|--OF res = %i --|\n", printf("|%-12d|", i));
+    printf("\n|--MY res = %i --|\n", ft_printf("|%.5d|", i));
+    printf("\n|--OF res = %i --|\n", printf("|%.5d|", i));
  //   while (1)
  //       ;
     return (0);
