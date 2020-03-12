@@ -6,7 +6,7 @@
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 13:48:45 by stelie            #+#    #+#             */
-/*   Updated: 2020/03/12 17:58:45 by stelie           ###   ########.fr       */
+/*   Updated: 2020/03/12 18:56:07 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,11 @@ void	ft_write_di(t_obj *obj, va_list ap)
 	{
 		if (!obj->width)
 			str = ft_write_di_p(obj, ap);
+		else if (!obj->flag[MINUS])
+			str = ft_write_di_pw(obj, ap);
+		else
+			str = ft_write_di_pw_min(obj, ap);
 	}
-	
+
 	free(str);
 }
