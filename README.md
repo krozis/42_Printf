@@ -52,6 +52,16 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 - **`' '`**
 - **`+`** 
 
+## Not in project flags
+
+- **`%o`**	*(imprime un nombre en octal.)*
+- **`%f`**	*(imprime un double.)*
+- **`%e`** et **`%E`**	*(imprime un double.)*
+- **`%g`** et **`%G`**	*(imprime un double.)*
+- **`n`**	*(imprime le nombre de caracteres imprimes par printf.)* (pas d'argument attendu)
+
+- minimum width
+
 ## Helping tools
 	
 - https://man7.org/linux/man-pages/man3/stdarg.3.html
