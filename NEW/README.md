@@ -8,9 +8,11 @@
 		- src
 			- 42_Libft/
 			- ft_printf.c
-		Makefile
+	- Makefile
 
-
+1) Commencer par la fonction principale qui redirige des qu'elle tombe sur un `%`.
+2) Gerer le `%%` direct pour pouvoir tester l'affichage ET la valeur de retour.
+3) Commencer par la conv `c`.
 
 
 ## mandatory flags : 
