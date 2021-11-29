@@ -1,11 +1,25 @@
-Pour l'instant, on recupere les flags et les conversions sans probleme.
+## Progress :
+
+- Makefile : OK for now
+- Arbo : 
+	- NEW
+		- includes
+			- ft_printf.h
+		- src
+			- 42_Libft/
+			- ft_printf.c
+		Makefile
 
 
-12 MARS 2020 : 
-- Correction de la precision qui n'etait pas prise en compte dans le cas ou
-	la taille de cette derniere est de 1 a 9 (souci de obj->idx++ en trop).
-- Ajout de ft_write_di_w_min.
-- Separation pour les "d/i" en deux : IF (!obj->prec) / else
-- OK pour write_di_p (p, pw et pw_min) mais la norm passera pas. Je pense que passer à
-	un fichier par write serait p'tete mieux.
 
+
+## mandatory flags : 
+	- **`%c`**	*(imprime un seul caractère.)*
+	- **`%s`**	*(imprime une chaîne de caractères.)*
+	- **`%p`**	*(L’argument de pointeur void \* est imprimé en hexadécimal.)*
+	- **`%d`**	*(imprime un nombre décimal (base 10).)*
+	- **`%i`**		*(imprime un entier en base 10.)*
+	- **`%u`**	*(imprime un nombre décimal non signé (base 10).)*
+	- **`%x`**	*(imprime un nombre en hexadécimal (base 16) avec lettres en minuscule.)*
+	- **`%X`**	*((imprime un nombre en hexadécimal (base 16) avec lettres en MAJUSCULE.)*
+	- **`%%`**	*(imprime un signe de pourcentage..)*

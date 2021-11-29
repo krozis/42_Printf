@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 15:54:37 by stelie            #+#    #+#             */
-/*   Updated: 2021/11/29 15:48:02 by stelie           ###   ########.fr       */
+/*   Created: 2021/11/29 15:17:46 by stelie            #+#    #+#             */
+/*   Updated: 2021/11/29 15:22:54 by stelie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
 #include "ft_printf.h"
-#include <unistd.h>
-#include <stdlib.h>
 
-int	main(void)
+int	ft_printf(void)
 {
-	ft_printf();
-	bonus();
+	ft_putstr_fd("COUCOU\n", 1);
 	return (0);
 }
