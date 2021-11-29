@@ -48,7 +48,7 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 ## Bonus Part
 
 - all combinations of the flags **`-0.`**
-- **`#`**	*(Usage variant en fonction de ce aui suit.)*
+- **`#`**	*(Usage variant en fonction de ce aui suit, ici on utilisera `%#x` et `%#X` uniquement.)*
 - **`space`**	*(Les valeurs positives commencent par un espace.)
 - **`+`** 	*(imprime le signe des nombres positifs.)*
 - *minimum width with ALL the conversions*
@@ -60,8 +60,6 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 - **`%e`** et **`%E`**	*(imprime un double.)*
 - **`%g`** et **`%G`**	*(imprime un double.)*
 - **`n`**	*(imprime le nombre de caracteres imprimes par printf.)* (pas d'argument attendu)
-
-
 
 ## Helping tools
 	
