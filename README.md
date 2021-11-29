@@ -48,9 +48,9 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 ## Bonus Part
 
 - all combinations of the flags **`-0.`**
-- **`#`**
-- **`' '`**
-- **`+`** 
+- **`#`**	*(Usage variant en fonction de ce aui suit.)*
+- **`space`**	*(Les valeurs positives commencent par un espace.)
+- **`+`** 	*(imprime le signe des nombres positifs.)*
 
 ## Not in project flags
 
