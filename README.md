@@ -51,6 +51,7 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 - **`#`**	*(Usage variant en fonction de ce aui suit.)*
 - **`space`**	*(Les valeurs positives commencent par un espace.)
 - **`+`** 	*(imprime le signe des nombres positifs.)*
+- *minimum width with ALL the conversions*
 
 ## Not in project flags
 
@@ -60,7 +61,7 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 - **`%g`** et **`%G`**	*(imprime un double.)*
 - **`n`**	*(imprime le nombre de caracteres imprimes par printf.)* (pas d'argument attendu)
 
-- minimum width
+
 
 ## Helping tools
 	
