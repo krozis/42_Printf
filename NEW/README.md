@@ -4,25 +4,25 @@
 
 - Arbo :
 
-- NEW
+	- NEW
 
-- includes
+		- includes
 
-- ft_printf.h
+		- ft_printf.h
 
-- src
+		- src
 
 - 42_Libft/
 
-- ft_printf.c
+	- ft_printf.c
 
-- Makefile
+	- Makefile
 
 ------
 
  - [ ] Commencer par la fonction principale qui redirige des qu'elle tombe sur un `%`.
 
- - [ ] Gerer le `%%` direct pour pouvoir tester l'affichage ET la valeur de retour.
+ - [ ] Gerer le `%%` direct pour pouvoir tester l'affichage ET la valeur de retour (le nb total de char imprimes a l'ecran, incluant les \n etc..).
 
  - [ ] Commencer par la conv `c`.
 
