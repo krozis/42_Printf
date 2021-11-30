@@ -1,22 +1,15 @@
 ## Progress : ##
 
-- Makefile : OK for now
+Makefile : OK for now
 
-- Arbo :
-
-	- NEW
-
-		- includes
-
+Arbo :
+- NEW
+	- includes
 		- ft_printf.h
-
-		- src
-
-- 42_Libft/
-
-	- ft_printf.c
-
-	- Makefile
+	- src
+		- 42_Libft/
+		- ft_printf.c
+		- Makefile
 
 ------
 
