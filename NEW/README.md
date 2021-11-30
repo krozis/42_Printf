@@ -38,54 +38,53 @@ Arbo :
 compatible avec:
 
 - left justify (%-)
-
 - min width ( %5c)
-
 - les deux a la fois
 
 incompatible avec:
 
 - precision (.5)
-
 - '#'
-
 - '+'
-
 - ' ' (blank)
-
 - '0'
-
-  
 
 ####  `s`  ####
 
 compatible avec:
 
 - min width (%5s)
-
 - precision (%.5s)
-
 - les deux a la fois
-
 - left justify (%-)
-
-  
 
 incompatible avec:
 
 - '+'
-
 - '#'
-
 - ' ' (blank)
-
 - '0'
 
-  
-  
-  
-  
-  
+####  `i` & `d`  ####
+
+compatible avec:
+
+- min width (%5i)
+- precision (%.5i)
+- les deux a la fois
+- '0'
+- '-'
+- ' ' (blank)
+- '+'
+
+incompatible avec:
+
+- '#'
+- ' ' et '+' a la fois
+
+####  `u`  ####
+####  `x` & `X` ####
+
 
 ## mandatory flags :
 
