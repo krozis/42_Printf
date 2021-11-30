@@ -84,7 +84,7 @@ incompatible avec:
 
 ####  `u`  ####
 ####  `x` & `X` ####
-
+####  `p` ####
 
 ## mandatory flags :
 
