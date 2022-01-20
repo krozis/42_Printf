@@ -1,9 +1,6 @@
 Fonctions appelees et non faites :
 
----------------is_valid_flag(*format, fid)
-use_fid(list, fid)
----------------check si flags/types compatibles entre eux
-
+ use_fid(list, fid)
 
 
 libft used:
@@ -11,7 +8,7 @@ libft used:
 ft_bzero
 ft_incharset
 ft_isdigit
-ft_atoi
+ft_atoi (+ ft_isspace)
 
 
 
@@ -24,8 +21,7 @@ Pour l'instant :
 	et remonte les erreurs si il y en a.
 
 
----MAINTENANT QU'ON A LE FID, ON DOIT L'ECRIRE SELON
----LE TYPE DE CONV et SELON LES FLAGS.	
+## MAINTENANT QU'ON A LE FID, ON DOIT L'ECRIRE SELON LE TYPE DE CONV et SELON LES FLAGS.	
 
 
 - La fonction a bien pris en compte la taille du "%flag/conv" et on se retrouve bien apres
