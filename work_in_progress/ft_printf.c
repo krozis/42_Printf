@@ -3,115 +3,120 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 11:29:38 by stelie            #+#    #+#             */
-/*   Updated: 2022/01/11 15:47:53 by stelie           ###   ########.fr       */
+/*   Created: 2022/01/20 19:34:41 by krozis            #+#    #+#             */
+/*   Updated: 2022/01/20 23:31:20 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_get_width(const char *format, t_pf *fid)
+static void	check_if_valid_fid(t_fid *fid)
 {
-	int	i;
+	if (!(ft_incharset(fid->conv, TYPESET)))
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[ZERO] && ((fid->conv == 'c' || fid->conv == 's' ||
+			fid->conv == 'p') || fid->flag[MINUS] == 1))
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[SHARP] && !(fid->conv == 'x' || fid->conv == 'X'))
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[PLUS] && (!(fid->conv == 'i' || fid->conv == 'd') ||
+			fid->flag[SPACE] == 1))
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[SPACE] && !(fid->conv == 'i' || fid->conv == 'd'))
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[PREC] > 0 && (fid->conv == 'c' || fid->conv == 'p'))
+		fid->flag[FID_ERROR] = 1;		
+}
 
-	i = 0;
-	fid->minwid = ft_atoi(format);
-	while (*format != '\n' && ft_isdigit(*format))
+static void	check_if_valid_flag(char c, t_fid *fid)
+{
+	if (c == '0' && fid->flag[ZERO] == 0)
+		fid->flag[ZERO] = 1;
+	else if	(c == '#' && fid->flag[SHARP] == 0)
+		fid->flag[SHARP] = 1;
+	else if	(c == '-' && fid->flag[MINUS] == 0)
+		fid->flag[MINUS] = 1;
+	else if	(c == '+' && fid->flag[PLUS] == 0)
+		fid->flag[PLUS] = 1;
+	else if	(c == ' ' && fid->flag[SPACE] == 0)
+		fid->flag[SPACE] = 1;
+	else
+		fid->flag[FID_ERROR] = 1;
+}
+
+static void	get_fid(const char *format, t_fid *fid)
+{
+	while (ft_incharset(*format, FLAGSET))
 	{
+		check_if_valid_flag(*format, fid);
 		format++;
-		i++;
+		fid->fid_len++;
+	}
+	if (ft_isdigit(*format))
+	{
+		fid->flag[MAX_WIDTH] = ft_atoi(format);
+		while(ft_isdigit(*format))
+		{
+			format++;
+			fid->fid_len++;
+		}
 	}
 	if (*format == '.')
 	{
 		format++;
-		i++;
-		fid->maxwid = ft_atoi(format);
-		while (*format != '\n' && ft_isdigit(*format))
+		fid->fid_len++;
+		fid->flag[PREC] = ft_atoi(format);
+		while(ft_isdigit(*format))
 		{
 			format++;
-			i++;
+			fid->fid_len++;
 		}
 	}
-	return (i);
+	fid->conv = *format;
+	format++;
+	fid->fid_len++;
 }
 
-static t_bool	ft_get_flag(char c, t_pf *fid)
+static int	found_fid(va_list list, const char *format, int *pf_res)
 {
-	if (c == '#' && fid->sharp == FALSE)
-		fid->sharp = TRUE;
-	else if (c == '0' && fid->zero == FALSE)
-		fid->zero = TRUE;
-	else if (c == '+' && fid->plus == FALSE)
-		fid->plus = FALSE;
-	else if (c == '-' && fid->minus == FALSE)
-		fid->minus = TRUE;
-	else if (c == ' ' && fid->space == FALSE)
-		fid->space = TRUE;
+	t_fid	fid;
+
+	ft_bzero(&fid, sizeof(t_fid));
+	if(*format && *format == '%')
+		return (write(1, "%", 1));
 	else
-		return (FALSE);
-	return (TRUE);
-}
-
-static int	pf(const char *format, va_list list, t_pf *fid)
-{
-	if (ft_incharset(*format, FLAGSET) && fid->conv == 0)
-	{	
-		while (ft_incharset(*format, FLAGSET))
-		{
-			if (ft_get_flag(*format, fid) == FALSE)
-				return (ERROR);
-			format++;
-			fid->fidlen++;
-		}
-	}
-	format += ft_get_width(format, fid);
-	if (ft_incharset(*format, TYPESET))
 	{
-		fid->conv = *format;
-		format++;
-		return (ft_error_control());
+		get_fid(format, &fid);
+		check_if_valid_fid(&fid);
+		if (fid.flag[FID_ERROR])
+			return (ERROR);
+		//*pf_res += use_fid(list, fid);
 	}
-	return (ERROR);
-}
-
-static int	ft_printf2(const char *format, va_list list)
-{
-	int		res;
-	t_pf	*fid;
-
-	res = 0;
-	while (*format != '\0')
-	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format == '%')
-				res += write(1, "%", 1);
-			else
-			{
-				ft_bzero(fid, sizeof(t_pf));
-				res += pf(format, list, fid);
-				if (fid->error == TRUE)
-					return (ERROR);
-				format += fid->fidlen;
-			}
-		}
-		else
-			res += write(1, (void *)format, 1);
-		format++;
-	}
-	return (res);
+	return (fid.fid_len);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	list;
-	int		res;
-
+	int		pf_res;
+	int		fid_len;
+	
 	va_start(list, format);
-	res = ft_printf2(format, list);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			fid_len = found_fid(list, format + 1, &pf_res);
+			if (fid_len == ERROR)
+				return (ERROR);
+			format += fid_len;
+		}
+		else
+			pf_res += write(1, format, 1);
+		format++;
+	}	
 	va_end(list);
-	return (res);
+	return (pf_res);
 }

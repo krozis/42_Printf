@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:20:33 by stelie            #+#    #+#             */
-/*   Updated: 2022/01/11 15:22:59 by stelie           ###   ########.fr       */
+/*   Updated: 2022/01/20 23:03:54 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,38 @@
 
 # include <stdarg.h>
 # include "libft.h"
+# include <stdio.h>
 
 # define ERROR -1
 # define TYPESET "csiduxXp"
 # define FLAGSET "#+- 0"
 
-typedef struct s_pf
+typedef	enum e_flags
 {
+	ZERO,
+	SHARP,
+	MINUS,
+	PLUS,
+	SPACE,
+	MAX_WIDTH,
+	PREC,
+	FID_ERROR
+}			t_flags;
+
+typedef struct s_fid
+{
+	int		flag[8];		//contient les flags, la min width, la precision
 	char	conv;			//conversion "cspdiuxX"
-	t_bool	sharp;			//optional # flag
-	t_bool	zero;			//optional 0 flag
-	t_bool	minus;			//optional - flag
-	t_bool	plus;			//optional + flag
-	t_bool	space;			//optional space flag
-	t_bool	minwid;			//optional min width (ex: %5s)
-	t_bool	maxwid;			//optional max width (ex: %.5s)
-	int		fidlen;			//taille du fid
-	int 	prlen;			//nb de char imprimes
-	t_bool	error;			//detect any error (incompatiblity, redundance, ...)
-}				t_pf;
+	int		fid_len;		//taille du FID (sans compter le %)
+}				t_fid;
 
 int		ft_printf(const char *format, ...);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strrev(char *str);
 char	*ft_itoa_pf(int i, char *str, int base);
+t_bool	ft_incharset(char c, char *charset);
+t_bool	ft_isdigit(int c);
+int		ft_atoi(const char *str);
+t_bool	ft_isspace(int c);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_pf.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:51:26 by stelie            #+#    #+#             */
-/*   Updated: 2022/01/11 13:56:31 by stelie           ###   ########.fr       */
+/*   Updated: 2022/01/20 23:31:32 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 int	main(void)
 {
-	ft_printf("coucou%y\n");
+	int res = 5;
+	
+	res = ft_printf("Coucou !!!%c\n", res);
+	printf("MINE: %i\n", res);
+	res = printf("Coucou !!!\n");
+	printf("REAL: %i\n", res);
 	return (0);
 }

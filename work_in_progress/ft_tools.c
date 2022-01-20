@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tools.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stelie <stelie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:21:31 by stelie            #+#    #+#             */
-/*   Updated: 2022/01/11 14:55:43 by stelie           ###   ########.fr       */
+/*   Updated: 2022/01/20 22:47:16 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,51 @@ char	*ft_itoa_pf(int i, char *str, int base)
 	return (ft_strrev(str));
 }
 
-t_bool	ft_is_in
+t_bool	ft_incharset(char c, char *charset)
+{
+	while (*charset)
+	{
+		if (*charset == c)
+			return (TRUE);
+		charset++;
+	}
+	return (FALSE);
+}
+
+t_bool	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (TRUE);
+	return (FALSE);
+}
+
+int	ft_atoi(const char *str)
+{
+	long	res;
+	int		sign;
+
+	res = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '+')
+		str++;
+	else if (*str == '-')
+	{
+		sign = -1;
+		str++;
+	}
+	while (*str && (*str < ':' && *str > '/'))
+	{
+		res = res * 10 + (*str - 48);
+		str++;
+	}
+	return (res * sign);
+}
+
+t_bool	ft_isspace(int c)
+{
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (TRUE);
+	return (FALSE);
+}
