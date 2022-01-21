@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:34:41 by krozis            #+#    #+#             */
-/*   Updated: 2022/01/20 23:31:20 by krozis           ###   ########.fr       */
+/*   Updated: 2022/01/21 16:30:41 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	get_fid(const char *format, t_fid *fid)
 	}
 	if (ft_isdigit(*format))
 	{
-		fid->flag[MAX_WIDTH] = ft_atoi(format);
+		fid->flag[M_WIDTH] = ft_atoi(format);
 		while(ft_isdigit(*format))
 		{
 			format++;
@@ -85,14 +85,17 @@ static int	found_fid(va_list list, const char *format, int *pf_res)
 
 	ft_bzero(&fid, sizeof(t_fid));
 	if(*format && *format == '%')
+	{
+		*pf_res += 1;
 		return (write(1, "%", 1));
+	}
 	else
 	{
 		get_fid(format, &fid);
 		check_if_valid_fid(&fid);
 		if (fid.flag[FID_ERROR])
 			return (ERROR);
-		//*pf_res += use_fid(list, fid);
+		*pf_res += use_fid(list, &fid);
 	}
 	return (fid.fid_len);
 }
