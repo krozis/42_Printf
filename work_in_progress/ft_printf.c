@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:34:41 by krozis            #+#    #+#             */
-/*   Updated: 2022/01/21 16:30:41 by krozis           ###   ########.fr       */
+/*   Updated: 2022/01/22 15:09:25 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int	ft_printf(const char *format, ...)
 	int		pf_res;
 	int		fid_len;
 	
+	pf_res = 0;
 	va_start(list, format);
 	while (*format)
 	{
