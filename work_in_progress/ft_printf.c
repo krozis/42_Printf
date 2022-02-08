@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:34:41 by krozis            #+#    #+#             */
-/*   Updated: 2022/01/22 15:09:25 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/08 16:38:00 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ static void	check_if_valid_fid(t_fid *fid)
 	if (fid->flag[SPACE] && !(fid->conv == 'i' || fid->conv == 'd'))
 		fid->flag[FID_ERROR] = 1;
 	if (fid->flag[PREC] > 0 && (fid->conv == 'c' || fid->conv == 'p'))
-		fid->flag[FID_ERROR] = 1;		
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[ZERO] && fid->flag[PREC] > 0)
+		fid->flag[FID_ERROR] = 1;
 }
 
 static void	check_if_valid_flag(char c, t_fid *fid)
@@ -43,6 +45,10 @@ static void	check_if_valid_flag(char c, t_fid *fid)
 	else if	(c == ' ' && fid->flag[SPACE] == 0)
 		fid->flag[SPACE] = 1;
 	else
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[PLUS] && fid->flag[SPACE])
+		fid->flag[FID_ERROR] = 1;
+	if (fid->flag[MINUS] && fid->flag[ZERO])
 		fid->flag[FID_ERROR] = 1;
 }
 
@@ -96,6 +102,7 @@ static int	found_fid(va_list list, const char *format, int *pf_res)
 		if (fid.flag[FID_ERROR])
 			return (ERROR);
 		*pf_res += use_fid(list, &fid);
+		write (1, RESET, 5);
 	}
 	return (fid.fid_len);
 }

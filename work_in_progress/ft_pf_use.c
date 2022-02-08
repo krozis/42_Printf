@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 07:33:32 by krozis            #+#    #+#             */
-/*   Updated: 2022/01/22 15:05:04 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/08 15:40:28 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,7 @@ int	use_fid(va_list list, t_fid *fid)
 		return (pf_char(va_arg(list, int), fid));
 	if (fid->conv == 's')
 		return (pf_string(va_arg(list, char *), fid));
+	if (fid->conv == 'i' || fid->conv == 'd')
+		return (pf_int(va_arg(list, int), fid));
 	return (ERROR);
 }

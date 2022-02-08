@@ -6,13 +6,13 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:22:09 by krozis            #+#    #+#             */
-/*   Updated: 2022/01/22 15:23:26 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/08 15:41:55 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int pf_str_with_prec(char *str, t_fid *fid, int len)
+static int	pf_str_with_prec(char *str, t_fid *fid)
 {
 	int res;
 
@@ -70,7 +70,7 @@ static int	pf_str_no_prec(char *str, t_fid *fid, int len)
 
 int	pf_string(char *str, t_fid *fid)
 {
-	if (fid->flag[PREC] == 0 || (fid->flag[PREC] >= ft_strlen(str)))
+	if (fid->flag[PREC] == 0 || (fid->flag[PREC] >= (int)ft_strlen(str)))
 		return (pf_str_no_prec(str, fid, ft_strlen(str)));
-	return (pf_str_with_prec(str, fid, ft_strlen(str)));
+	return (pf_str_with_prec(str, fid));
 }

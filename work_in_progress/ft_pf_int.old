@@ -1,0 +1,130 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_pf_int.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/04 16:18:31 by krozis            #+#    #+#             */
+/*   Updated: 2022/02/08 17:22:59 by krozis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static int	pf_int_simple(int nb, int nb_len)
+{
+	if (nb < 0)
+		nb_len++;
+	ft_putnbr_fd(nb, 1);
+	return (nb_len);
+}
+
+static int	pf_int_default(int nb, t_fid *fid, int nb_len)
+{
+	if (fid->flag[MINUS])
+	{
+		if (nb < 0)
+		{
+			write(1, "-", 1);
+			nb = -nb;
+		}
+		pf_int_simple(nb, nb_len);
+		while (fid->flag[M_WIDTH] > nb_len)
+		{
+			write(1, " ", 1);
+			nb_len++;
+		}
+		return (fid->flag[M_WIDTH]);
+	}
+	while (fid->flag[M_WIDTH] > nb_len)
+	{
+		write(1, " ", 1);
+		nb_len++;
+	}
+	pf_int_simple(nb, nb_len);
+	return (fid->flag[M_WIDTH]);
+}
+
+static int	pf_int_prec(int nb, t_fid *fid, int nb_len)
+{
+	if (nb < 0)
+	{
+		write (1, "-", 1);
+		nb = -nb;
+		fid->flag[PREC]++;
+	}
+	else if (fid->flag[PLUS])
+	{
+		write(1, "+", 1);
+	}
+	else if (fid->flag[SPACE])
+	{
+		write(1, " ", 1);
+	}
+	while(fid->flag[PREC] > nb_len)
+	{
+		write(1, "0", 1);
+		nb_len++;
+	}
+	pf_int_simple(nb, nb_len);
+	if (fid->flag[PLUS] || fid->flag[SPACE])
+		fid->flag[PREC]++;
+	return (fid->flag[PREC]);
+}
+
+static int	pf_int_both(int	nb, t_fid *fid, int nb_len)
+{
+	write(1, GRN, 5);
+	if (fid->flag[MINUS])
+	{
+		nb_len += pf_int_prec(nb, fid, nb_len) - nb_len;
+		while (fid->flag[M_WIDTH] > nb_len)
+		{
+			write(1, " ", 1);
+			nb_len++;
+		}
+		return (fid->flag[M_WIDTH]);
+	}
+	while (fid->flag[M_WIDTH] > fid->flag[PREC])
+	{
+		write(1, " ", 1);
+		fid->flag[PREC]++;
+		nb_len++;
+	}
+	while (fid->flag[PREC] > nb_len)
+	{
+		write(1, "0", 1);
+		nb_len++;
+	}
+	pf_int_simple(nb, nb_len);
+	return (nb_len);
+}
+
+int	pf_int(int nb, t_fid *fid)
+{
+	int nb_len;
+
+	if (nb < 0)
+		fid->flag[PLUS] = 0;
+	nb_len = ft_nbrlen(nb);
+	if (nb_len >= fid->flag[M_WIDTH] && nb_len >= fid->flag[PREC])
+	{
+		if (fid->flag[PLUS])
+		{
+			write(1, "+", 1);
+			return (pf_int_simple(nb, nb_len + 1));
+		}
+		else if (fid->flag[SPACE])
+		{
+			write(1, " ", 1);
+			return (pf_int_simple(nb, nb_len + 1));
+		}
+		return (pf_int_simple(nb, nb_len));
+	}
+	else if (fid->flag[PREC] >= fid->flag[M_WIDTH])
+		return (pf_int_prec(nb, fid, nb_len));
+	else if (fid->flag[M_WIDTH] > fid->flag[PREC] && nb_len < fid->flag[PREC])
+		return (pf_int_both(nb, fid, nb_len));
+	return (pf_int_default(nb, fid, nb_len));
+}
