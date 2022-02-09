@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:51:26 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/08 18:30:52 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/09 15:33:01 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main()
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 */
 	ft_printf("----------- INT ------------\n");	
-/*
+
 	res = ft_printf("%%i  = |%i|\n", 42);
 	res2 =   printf("%%i  = |%i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
@@ -215,7 +215,7 @@ int	main()
 	res = ft_printf("%% .4i  = |% .4i|\n", 42);
 	res2 =   printf("%% .4i  = |% .4i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
-*/
+
 	res = ft_printf("%%-20.6i  = |%-20.6i|\n", -42);
 	res2 =   printf("%%-20.6i  = |%-20.6i|\n", -42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
@@ -226,12 +226,11 @@ int	main()
 	
 	test = 42;
 	printf("NB_LEN = %li\nNB = %i\n", ft_nbrlen(test), test);
-	printf("%%+.3i  = |%+.3i|\n", test);
-	printf("%% .3i  = |% .3i|\n", test);
-	printf("%%.3i   = |%.3i|\n", -test);
+	printf("%%+6.4i  = |%+6.4i|\n", test);
+	printf("%% 6.4i  = |% 6.4i|\n", test);
+	printf("%%6.4i   = |%6.4i|\n", -test);
 
-	res2 =   printf("|% .3i|\n", test);
-	printf("TEST:%i\n", res2);
+	ft_putnbr_fd(abs(INT_MIN), 1);
 	/*int	test = ft_atoi(av[1]);
 	printf("RESULT : nbr = %i, len = %li\n", test, ft_nbrlen(test));*/
 	

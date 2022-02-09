@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:21:31 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/08 18:28:56 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/09 15:31:51 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,4 +196,22 @@ int		ft_max(int a, int b)
 	if (a > b)
 		return (a);
 	return (b);
+}
+
+void	ft_pf_putnbr(int n)
+{
+	if (n == -2147483648)
+    {
+		ft_putstr_fd("214748364", 1);
+		n = 8;
+	}
+	else if (n < 0)
+    	n = -n;
+    if (n < 10)
+    ft_putchar_fd('0' + n, 1);
+    else
+    {
+		ft_putnbr_fd(n / 10, 1);
+		ft_putnbr_fd(n % 10, 1);
+    }
 }
