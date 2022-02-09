@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:34:41 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/08 16:38:00 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/09 16:55:44 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ static int	found_fid(va_list list, const char *format, int *pf_res)
 		if (fid.flag[FID_ERROR])
 			return (ERROR);
 		*pf_res += use_fid(list, &fid);
-		write (1, RESET, 5);
 	}
 	return (fid.fid_len);
 }
