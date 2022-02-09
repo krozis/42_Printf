@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:20:33 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/08 18:18:35 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/09 15:30:21 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	ft_putchar_fd(char c, int fd);
 void    ft_putstr_fd(char *s, int fd);
 void    ft_putnbr_fd(int n, int fd);
 int		ft_abs(int nb);
+void	ft_pf_putnbr(int n);
 
 /*
 ft_pf_use.c
