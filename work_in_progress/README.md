@@ -21,7 +21,9 @@ Pour l'instant :
 	et remonte les erreurs si il y en a.
 - char conv : OK
 - string conv : OK
-- i & d conv : PENDING
+- i & d conv : OK, needs more tests (peut etre l'optimiser avec une sous fonction pour regrouper + afficher fid->flag[PREC] && le nb, soit toujours coller les zero)
+- u : OK
+- x & X : PENDING
 
 ## MAINTENANT QU'ON A LE FID, ON DOIT L'ECRIRE SELON LE TYPE DE CONV et SELON LES FLAGS.	
 

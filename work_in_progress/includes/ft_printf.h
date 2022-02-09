@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:20:33 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/09 15:30:21 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/09 16:22:09 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,13 @@ void    ft_putstr_fd(char *s, int fd);
 void    ft_putnbr_fd(int n, int fd);
 int		ft_abs(int nb);
 void	ft_pf_putnbr(int n);
-
+void	ft_pf_putuint(unsigned int nb);
 /*
 ft_pf_use.c
 */
 int	use_fid(va_list list, t_fid *fid);
 int	pf_string(char *str, t_fid *fid);
 int	pf_int(int nb, t_fid *fid);
+int	pf_uint(unsigned int nb, t_fid *fid);
 
 #endif
