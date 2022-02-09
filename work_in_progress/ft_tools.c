@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:21:31 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/09 15:31:51 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/09 16:24:29 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,4 +214,15 @@ void	ft_pf_putnbr(int n)
 		ft_putnbr_fd(n / 10, 1);
 		ft_putnbr_fd(n % 10, 1);
     }
+}
+
+void	ft_pf_putuint(unsigned int nb)
+{
+	if (nb < 10)
+		ft_putchar_fd(nb + '0', 1);
+	else
+	{
+		ft_pf_putuint(nb / 10);
+		ft_pf_putuint(nb % 10);
+	}
 }
