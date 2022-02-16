@@ -1,18 +1,3 @@
-Fonctions appelees et non faites :
-
- use_fid(list, fid)
-
-
-libft used:
-
-ft_bzero
-ft_incharset
-ft_isdigit
-ft_atoi (+ ft_isspace)
-
-
-
-
 Pour l'instant :
 
 - ouvre la list
