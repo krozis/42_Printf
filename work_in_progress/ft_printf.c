@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:34:41 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/09 16:55:44 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:36:31 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ static void	check_if_valid_fid(t_fid *fid)
 {
 	if (!(ft_incharset(fid->conv, TYPESET)))
 		fid->flag[FID_ERROR] = 1;
-	if (fid->flag[ZERO] && ((fid->conv == 'c' || fid->conv == 's' ||
-			fid->conv == 'p') || fid->flag[MINUS] == 1))
+	if (fid->flag[ZERO] && ((fid->conv == 'c' || fid->conv == 's'
+				|| fid->conv == 'p') || fid->flag[MINUS] == 1))
 		fid->flag[FID_ERROR] = 1;
 	if (fid->flag[SHARP] && !(fid->conv == 'x' || fid->conv == 'X'))
 		fid->flag[FID_ERROR] = 1;
-	if (fid->flag[PLUS] && (!(fid->conv == 'i' || fid->conv == 'd') ||
-			fid->flag[SPACE] == 1))
+	if (fid->flag[PLUS] && (!(fid->conv == 'i' || fid->conv == 'd')
+			|| fid->flag[SPACE] == 1))
 		fid->flag[FID_ERROR] = 1;
 	if (fid->flag[SPACE] && !(fid->conv == 'i' || fid->conv == 'd'))
 		fid->flag[FID_ERROR] = 1;
@@ -36,13 +36,13 @@ static void	check_if_valid_flag(char c, t_fid *fid)
 {
 	if (c == '0' && fid->flag[ZERO] == 0)
 		fid->flag[ZERO] = 1;
-	else if	(c == '#' && fid->flag[SHARP] == 0)
+	else if (c == '#' && fid->flag[SHARP] == 0)
 		fid->flag[SHARP] = 1;
-	else if	(c == '-' && fid->flag[MINUS] == 0)
+	else if (c == '-' && fid->flag[MINUS] == 0)
 		fid->flag[MINUS] = 1;
-	else if	(c == '+' && fid->flag[PLUS] == 0)
+	else if (c == '+' && fid->flag[PLUS] == 0)
 		fid->flag[PLUS] = 1;
-	else if	(c == ' ' && fid->flag[SPACE] == 0)
+	else if (c == ' ' && fid->flag[SPACE] == 0)
 		fid->flag[SPACE] = 1;
 	else
 		fid->flag[FID_ERROR] = 1;
@@ -63,22 +63,16 @@ static void	get_fid(const char *format, t_fid *fid)
 	if (ft_isdigit(*format))
 	{
 		fid->flag[M_WIDTH] = ft_atoi(format);
-		while(ft_isdigit(*format))
-		{
-			format++;
+		while (ft_isdigit(*format) && format++)
 			fid->fid_len++;
-		}
 	}
 	if (*format == '.')
 	{
 		format++;
 		fid->fid_len++;
 		fid->flag[PREC] = ft_atoi(format);
-		while(ft_isdigit(*format))
-		{
-			format++;
+		while (ft_isdigit(*format) && format++)
 			fid->fid_len++;
-		}
 	}
 	fid->conv = *format;
 	format++;
@@ -90,7 +84,7 @@ static int	found_fid(va_list list, const char *format, int *pf_res)
 	t_fid	fid;
 
 	ft_bzero(&fid, sizeof(t_fid));
-	if(*format && *format == '%')
+	if (*format && *format == '%')
 	{
 		*pf_res += 1;
 		return (write(1, "%", 1));
@@ -111,7 +105,7 @@ int	ft_printf(const char *format, ...)
 	va_list	list;
 	int		pf_res;
 	int		fid_len;
-	
+
 	pf_res = 0;
 	va_start(list, format);
 	while (*format)
