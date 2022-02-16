@@ -6,13 +6,17 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:51:26 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/09 16:56:43 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:04:35 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 #define RN printf("\n");
+#define RED_BAR_UP printf(RED"-----v---v---v---v-----------\n"RESET);
+#define RED_BAR_DOWN printf(RED"-----^---^---^---^-----------\n"RESET);
+#define SEPUP RN RED_BAR_UP RN
+#define SEPDO RN RED_BAR_DOWN RN
 
 
 int	main()
@@ -22,7 +26,7 @@ int	main()
 	int		res = 1;
 	int		res2 = 3;
 
-	ft_printf("-----------  CHAR  -------------\n");
+	ft_printf(GRN"-----------  CHAR  -------------\n"RESET);
 	res = ft_printf("%%c     = |%c|\n", c);
 	res2 =   printf("%%c     = |%c|\n", c);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
@@ -39,7 +43,7 @@ int	main()
 	res2 =   printf("%%-c     = |%-c|\n", c);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 */
-	ft_printf("----------- STRINGS ------------\n");
+	ft_printf(GRN"----------- STRINGS ------------\n"RESET);
 
 	res = ft_printf("%%s    = |%s|\n", str);
 	res2 =   printf("%%s    = |%s|\n", str);
@@ -85,7 +89,7 @@ int	main()
 	res2 =   printf("%%5.6s  = |%5.6s|\n", str);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 */
-	ft_printf("----------- INT ------------\n");	
+	ft_printf(GRN"----------- INT ------------\n"RESET);	
 
 	res = ft_printf("%%i  = |%i|\n", 42);
 	res2 =   printf("%%i  = |%i|\n", 42);
@@ -187,6 +191,19 @@ int	main()
 	res2 =   printf("%%+-i  = |%+-i|\n", -42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
+	SEPUP
+	res = ft_printf("%%0i  = |%0i|\n", 42);
+	res2 =   printf("%%0i  = |%0i|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	res = ft_printf("%%0i  = |%0i|\n", -42);
+	res2 =   printf("%%0i  = |%0i|\n", -42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	res = ft_printf("%%0+i  = |%0+i|\n", 42);
+	res2 =   printf("%%0+i  = |%0+i|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
 	res = ft_printf("%%0+i  = |%0+i|\n", -42);
 	res2 =   printf("%%0+i  = |%0+i|\n", -42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
@@ -195,27 +212,40 @@ int	main()
 	res2 =   printf("%% 0i  = |% 0i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
+	res = ft_printf("%% 0i  = |% 0i|\n", -42);
+	res2 =   printf("%% 0i  = |% 0i|\n", -42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	res = ft_printf("%%08 i  = |%0 8i|\n", 42);
+	res2 =   printf("%%08 i  = |%0 8i|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	res = ft_printf("%%0 8i  = |%0 8i|\n", -42);
+	res2 =   printf("%%0 8i  = |%0 8i|\n", -42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	SEPDO
+
 	res = ft_printf("%%+-5.3i  = |%+-5.3i|\n", 42);
 	res2 =   printf("%%+-5.3i  = |%+-5.3i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
-
+	
 	res = ft_printf("%%+-4.3i  = |%+-4.3i|\n", 42);
 	res2 =   printf("%%+-4.3i  = |%+-4.3i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
-
+	
 	res = ft_printf("%%+-4.4i  = |%+-4.4i|\n", -42);
 	res2 =   printf("%%+-4.4i  = |%+-4.4i|\n", -42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
-
+	
 	res = ft_printf("%%+.4i  = |%+.4i|\n", 42);
 	res2 =   printf("%%+.4i  = |%+.4i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
-
+	
 	res = ft_printf("%%-20.6i  = |%-20.6i|\n", -42);
 	res2 =   printf("%%-20.6i  = |%-20.6i|\n", -42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
-
-	ft_printf("----------- U INT ------------\n");
+	
+	ft_printf(GRN"----------- U INT ------------\n"RESET);
 
 	res = ft_printf("%%u  = |%u|\n", 42);
 	res2 =   printf("%%u  = |%u|\n", 42);
@@ -245,7 +275,6 @@ int	main()
 	res2 =   printf("%%5.6u  = |%5.6u|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
-
 	res = ft_printf("%%-5u  = |%-5u|\n", 42);
 	res2 =   printf("%%-5u  = |%-5u|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
@@ -270,7 +299,6 @@ int	main()
 	res2 =   printf("%%-5.6u  = |%-5.6u|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
-	printf(RED"\n");
 	res = ft_printf("%%05u  = |%05u|\n", 42);
 	res2 =   printf("%%05u  = |%05u|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
@@ -279,13 +307,17 @@ int	main()
 	res2 =   printf("%%01u  = |%01u|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
-	printf(RESET"\n");
-	ft_printf("----------- HEXA ------------\n");
 
-	res2 = printf("|%#5.6x|\n", 42);
+	ft_printf(GRN "----------- HEXA ------------\n"RESET);
+
+	printf("|%%+-4.3i| -> -42\n");
+	res2 =   printf("|%+-4i|", 42);
+	printf("\nRESULT: %i\n", res2);
+	res2 =   printf("|%.4i|", -42);
+	printf("\nRESULT: %i\n", res2);
+	printf("|%%+.5i| -> 42\n");
+	res2 =   printf("|%+.5i|\n", 42);
 	printf("RESULT: %i\n", res2);
-
-	
 
 	//ft_putnbr_fd(abs(INT_MIN), 1);
 	/*int	test = ft_atoi(av[1]);
