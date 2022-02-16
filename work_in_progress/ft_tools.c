@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:21:31 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/09 16:24:29 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/16 19:16:06 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_nbrlen(long nb)
 
 	len = 0;
 	if (nb < 10 && nb > -10)
-		return (len + 1);
+		return (1);
 	while (nb != 0)
 	{
 		nb /= 10;
@@ -225,4 +225,43 @@ void	ft_pf_putuint(unsigned int nb)
 		ft_pf_putuint(nb / 10);
 		ft_pf_putuint(nb % 10);
 	}
+}
+
+void	ft_pf_puthexa(int nb, t_bool low)
+{
+	if (nb < 16)
+	{
+		if (nb <= 9)
+			ft_putchar_fd('0' + nb, 1);
+		else
+			ft_putchar_fd('A' + (low * 32) + nb - 10, 1);
+	}
+	else
+	{
+		ft_pf_puthexa(nb / 16, low);
+		ft_pf_puthexa(nb % 16, low);	
+	}
+}
+
+size_t	ft_hexalen(long nb)
+{
+	size_t len;
+
+	len = 0;
+	if (nb < 16)
+		return (1);
+	while (nb != 0)
+	{
+		nb /= 16;
+		len++;
+	}
+	return (len);
+}
+
+void	show_fid(t_fid *fid)
+{
+	printf("\n------------\nfid_len = %i\nconv = %c\n", fid->fid_len, fid->conv);
+	printf("ZERO: %i\nSHARP: %i\nMINUS: %i\nPLUS: %i\nSPACE: %i\n", fid->flag[ZERO], fid->flag[SHARP], fid->flag[MINUS], fid->flag[PLUS], fid->flag[SPACE]);
+	printf("M_WIDTH: %i\nPREC: %i\nFID_ERROR: %i\n", fid->flag[M_WIDTH], fid->flag[PREC], fid->flag[FID_ERROR]);
+	printf("\n------------\n");
 }

@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:51:26 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/16 18:04:35 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/16 23:23:06 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -310,16 +310,83 @@ int	main()
 
 	ft_printf(GRN "----------- HEXA ------------\n"RESET);
 
-	printf("|%%+-4.3i| -> -42\n");
-	res2 =   printf("|%+-4i|", 42);
-	printf("\nRESULT: %i\n", res2);
-	res2 =   printf("|%.4i|", -42);
-	printf("\nRESULT: %i\n", res2);
-	printf("|%%+.5i| -> 42\n");
-	res2 =   printf("|%+.5i|\n", 42);
-	printf("RESULT: %i\n", res2);
+	printf("|%%x| -> 42\n");
+	res =   ft_printf("|%x|\n", 42);
+	res2 =     printf("|%x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	printf("|%%1x| -> 42\n");
+	res =   ft_printf("|%1x|\n", 42);
+	res2 =     printf("|%1x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	printf("|%%4x| -> 42\n");
+	res =   ft_printf("|%4x|\n", 42);
+	res2 =     printf("|%4x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
 
-	//ft_putnbr_fd(abs(INT_MIN), 1);
+	printf("|%%-1x| -> 42\n");
+	res =   ft_printf("|%-1x|\n", 42);
+	res2 =     printf("|%-1x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	printf("|%%-4x| -> 42\n");
+	res =   ft_printf("|%-4x|\n", 42);
+	res2 =     printf("|%-4x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%.1x| -> 42\n");
+	res =   ft_printf("|%.1x|\n", 42);
+	res2 =     printf("|%.1x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%.5x| -> 42\n");
+	res =   ft_printf("|%.5x|\n", 42);
+	res2 =     printf("|%.5x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%4.5x| -> 42\n");
+	res =   ft_printf("|%4.5x|\n", 42);
+	res2 =     printf("|%4.5x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%5.4x| -> 42\n");
+	res =   ft_printf("|%5.4x|\n", 42);
+	res2 =     printf("|%5.4x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%#x| -> 42\n");
+	res =   ft_printf("|%#x|\n", 42);
+	res2 =     printf("|%#x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%#.5X| -> 42\n");
+	res =   ft_printf("|%#.5X|\n", 42);
+	res2 =     printf("|%#.5X|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+	
+	printf("|%%#5x| -> 42\n");
+	res =   ft_printf("|%#5x|\n", 42);
+	res2 =     printf("|%#5x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%#-5x| -> 42\n");
+	res =   ft_printf("|%#-5x|\n", 42);
+	res2 =     printf("|%#-5x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%#05x| -> 42\n");
+	res =   ft_printf("|%#05x|\n", 42);
+	res2 =     printf("|%#05x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	printf("|%%#0x| -> 42\n");
+	res =   ft_printf("|%#0x|\n", 42);
+	res2 =     printf("|%#0x|\n", 42);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	
+
 	/*int	test = ft_atoi(av[1]);
 	printf("RESULT : nbr = %i, len = %li\n", test, ft_nbrlen(test));*/
 	
