@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:22:09 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/08 15:41:55 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:38:17 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	pf_str_with_prec(char *str, t_fid *fid)
 {
-	int res;
+	int	res;
 
 	res = fid->flag[M_WIDTH] - fid->flag[PREC];
 	if (res < 0)
@@ -43,7 +43,7 @@ static int	pf_str_with_prec(char *str, t_fid *fid)
 static int	pf_str_no_prec(char *str, t_fid *fid, int len)
 {
 	int	res;
-	
+
 	res = fid->flag[M_WIDTH] - len;
 	if (res < 0)
 		return (write(1, str, len));
