@@ -26,6 +26,9 @@ Pour l'instant :
 - x & X : OK
 - p : PENDING
 
+- Mise a la norme (ft_tools, header) : TO DO
+- Makefile : to do
+
 ## MAINTENANT QU'ON A LE FID, ON DOIT L'ECRIRE SELON LE TYPE DE CONV et SELON LES FLAGS.	
 
 
