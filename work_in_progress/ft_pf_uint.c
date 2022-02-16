@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:57:08 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/09 17:02:07 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/16 18:27:34 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	pf_uint_print(unsigned int nb, t_fid *fid, int nb_len)
 {
-
 	while (nb_len++ < fid->flag[PREC])
 		write(1, "0", 1);
 	ft_pf_putuint(nb);
@@ -22,15 +21,15 @@ static void	pf_uint_print(unsigned int nb, t_fid *fid, int nb_len)
 
 int	pf_uint(unsigned int nb, t_fid *fid)
 {
-	int nb_len;
-	int i;
+	int	nb_len;
+	int	i;
 
 	i = 0;
 	nb_len = ft_nbrlen(nb);
 	if (fid->flag[MINUS])
 		pf_uint_print(nb, fid, nb_len);
-	while ((fid->flag[M_WIDTH] > fid->flag[PREC] + i) && 
-		(fid->flag[M_WIDTH] > nb_len + i))
+	while ((fid->flag[M_WIDTH] > fid->flag[PREC] + i)
+		&& (fid->flag[M_WIDTH] > nb_len + i))
 	{
 		if (fid->flag[ZERO])
 			i += write(1, "0", 1);
