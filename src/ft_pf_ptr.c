@@ -6,11 +6,24 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 08:42:22 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/17 18:06:10 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:45:12 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	ft_pf_putptr(size_t nb, t_bool first)
+{
+	if (first)
+		ft_putstr_fd("0x", 1);
+	if (nb < 16)
+		ft_putchar_fd(HEXA_LOW[nb], 1);
+	else
+	{
+		ft_pf_putptr(nb / 16, FALSE);
+		ft_pf_putptr(nb % 16, FALSE);
+	}
+}
 
 static int	pf_ptr_null(t_fid *fid)
 {

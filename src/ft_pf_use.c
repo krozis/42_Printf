@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 07:33:32 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/17 18:06:27 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:43:04 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	use_fid(va_list list, t_fid *fid)
 	if (fid->conv == 'u')
 		return (pf_uint(va_arg(list, unsigned int), fid));
 	if (fid->conv == 'x' || fid->conv == 'X')
-		return (pf_hexa(va_arg(list, int), fid));
+		return (pf_hexa(va_arg(list, unsigned int), fid));
 	if (fid->conv == 'p')
 		return (pf_ptr(va_arg(list, size_t), fid));
 	return (ERROR);

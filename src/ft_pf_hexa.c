@@ -6,13 +6,29 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:07:57 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/16 23:40:33 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:44:33 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	pf_hexa_print(int nb, t_fid *fid, int nb_len, t_bool low)
+static void	ft_pf_puthexa(unsigned int nb, t_bool low)
+{
+	if (nb < 16)
+	{
+		if (nb <= 9)
+			ft_putchar_fd('0' + nb, 1);
+		else
+			ft_putchar_fd('A' + (low * 32) + nb - 10, 1);
+	}
+	else
+	{
+		ft_pf_puthexa(nb / 16, low);
+		ft_pf_puthexa(nb % 16, low);
+	}
+}
+
+static void	pf_hexa_print(unsigned int nb, t_fid *fid, int nb_len, t_bool low)
 {
 	int	i;
 
@@ -32,7 +48,7 @@ static void	pf_hexa_print(int nb, t_fid *fid, int nb_len, t_bool low)
 	ft_pf_puthexa(nb, low);
 }
 
-static int	pf_hexa_default(int nb, t_fid *fid, int nb_len, t_bool low)
+static int	pf_hexa_default(unsigned int nb, t_fid *fid, int nb_len, t_bool low)
 {
 	int	len;
 	int	i;
@@ -55,7 +71,7 @@ static int	pf_hexa_default(int nb, t_fid *fid, int nb_len, t_bool low)
 	return (ft_max(len, fid->flag[M_WIDTH]));
 }
 
-int	pf_hexa(int nb, t_fid *fid)
+int	pf_hexa(unsigned int nb, t_fid *fid)
 {
 	int		nb_len;
 	t_bool	low;
