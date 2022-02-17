@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:20:33 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/16 19:22:03 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/17 09:34:01 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct s_fid
 	int		fid_len;		//taille du FID (sans compter le %)
 }				t_fid;
 
-
 /*
 ft_printf.c
 */
@@ -75,7 +74,8 @@ int		ft_abs(int nb);
 void	ft_pf_putnbr(int n);
 void	ft_pf_putuint(unsigned int nb);
 void	ft_pf_puthexa(int nb, t_bool low);
-size_t	ft_hexalen(long nb);
+void	ft_pf_putptr(size_t nb, t_bool first);
+size_t	ft_hexalen(size_t nb);
 
 /*
 ft_pf_use.c
@@ -85,6 +85,7 @@ int	pf_string(char *str, t_fid *fid);
 int	pf_int(int nb, t_fid *fid);
 int	pf_uint(unsigned int nb, t_fid *fid);
 int	pf_hexa(int nb, t_fid *fid);
+int	pf_ptr(size_t addr, t_fid *fid);
 
 /*
 Other (tools)
