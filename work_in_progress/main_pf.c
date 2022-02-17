@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:51:26 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/16 23:23:06 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/17 09:32:24 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int	main()
 {
-	char	*str =  "testbug";
+	char	*str =  "AH! testbug";
 	char	c = 'F';
 	int		res = 1;
 	int		res2 = 3;
@@ -163,8 +163,8 @@ int	main()
 	res2 =   printf("%%5.6i  = |%5.6i|\n", INT_MIN);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
-	res = ft_printf("%%-8.7i  = |%-8.7i|\n", 42);
-	res2 =   printf("%%-8.7i  = |%-8.7i|\n", 42);
+	res = ft_printf("%%-8.1i  = |%-8.1i|\n", 42);
+	res2 =   printf("%%-8.1i  = |%-8.1i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 	
 	res = ft_printf("%%-8.7i  = |%-8.7i|\n", -424242);
@@ -385,10 +385,32 @@ int	main()
 	res2 =     printf("|%#0x|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
-	
+	ft_printf(GRN "----------- POINTER ------------\n"RESET);
 
-	/*int	test = ft_atoi(av[1]);
-	printf("RESULT : nbr = %i, len = %li\n", test, ft_nbrlen(test));*/
-	
+	res = ft_printf("%%p  = |%p|\n", str);
+	res2 =   printf("%%p  = |%p|\n", str);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	res = ft_printf("%%-p  = |%-p|\n", str);
+	res2 =   printf("%%-p  = |%-p|\n", str);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	res = ft_printf("%%5p  = |%5p|\n", str);
+	res2 =   printf("%%5p  = |%5p|\n", str);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	res = ft_printf("%%20p  = |%20p|\n", str);
+	res2 =   printf("%%20p  = |%20p|\n", str);
+	printf("MINE: %i\nREAL: %i\n", res, res2);
+
+	res = ft_printf("%%-5p  = |%-5p|\n", str);
+	res2 =   printf("%%-5p  = |%-5p|\n", str);
+	printf("MINE: %i\nREAL: %i\n", res, res2);	
+
+	res = ft_printf("%%-20p  = |%-20p|\n", NULL);
+	res2 =   printf("%%-20p  = |%-20p|\n", NULL);
+	printf("MINE: %i\nREAL: %i\n", res, res2);	
+
+//	ft_pf_putptr(__SIZE_MAX__, TRUE);
 	return (0);
 }
