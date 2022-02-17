@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:21:31 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/16 19:16:06 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/17 09:34:04 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,7 +243,25 @@ void	ft_pf_puthexa(int nb, t_bool low)
 	}
 }
 
-size_t	ft_hexalen(long nb)
+void	ft_pf_putptr(size_t nb, t_bool first)
+{
+	if (first)
+		ft_putstr_fd("0x", 1);
+	if (nb < 16)
+	{
+		if (nb <= 9)
+			ft_putchar_fd('0' + nb, 1);
+		else
+			ft_putchar_fd('A' + nb - 10, 1);
+	}
+	else
+	{
+		ft_pf_puthexa(nb / 16, FALSE);
+		ft_pf_puthexa(nb % 16, FALSE);	
+	}
+}
+
+size_t	ft_hexalen(size_t nb)
 {
 	size_t len;
 
