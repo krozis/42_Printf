@@ -6,13 +6,23 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:51:26 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/17 11:19:04 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/17 23:36:57 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 #define RN printf("\n");
+
+
+# define RED   "\x1B[31m"
+# define GRN   "\x1B[32m"
+# define YEL   "\x1B[33m"
+# define BLU   "\x1B[34m"
+# define MAG   "\x1B[35m"
+# define CYN   "\x1B[36m"
+# define WHT   "\x1B[37m"
+# define RESET "\x1B[0m"
 #define RED_BAR_UP printf(RED"-----v---v---v---v-----------\n"RESET);
 #define RED_BAR_DOWN printf(RED"-----^---^---^---^-----------\n"RESET);
 #define SEPUP RN RED_BAR_UP RN
@@ -191,7 +201,6 @@ int	main()
 	res2 =   printf("%%+-i  = |%+-i|\n", -42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
 
-	SEPUP
 	res = ft_printf("%%0i  = |%0i|\n", 42);
 	res2 =   printf("%%0i  = |%0i|\n", 42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
@@ -223,7 +232,6 @@ int	main()
 	res = ft_printf("%%0 8i  = |%0 8i|\n", -42);
 	res2 =   printf("%%0 8i  = |%0 8i|\n", -42);
 	printf("MINE: %i\nREAL: %i\n", res, res2);
-	SEPDO
 
 	res = ft_printf("%%+-5.3i  = |%+-5.3i|\n", 42);
 	res2 =   printf("%%+-5.3i  = |%+-5.3i|\n", 42);

@@ -9,7 +9,7 @@ Pour l'instant :
 - i & d conv : OK
 - u : OK
 - x & X : OK
-- p : PENDING
+- p : OK
 
 - Mise a la norme (ft_tools, header) : TO DO
 - Makefile : to do
