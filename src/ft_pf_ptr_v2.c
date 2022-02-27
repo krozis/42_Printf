@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 08:42:22 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/27 12:50:02 by krozis           ###   ########.fr       */
+/*   Updated: 2022/02/27 12:47:59 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ static int	pf_ptr_null(t_fid *fid)
 
 	i = 0;
 	if (fid->flag[MINUS])
-		write(1, "(nil)", 5);
-	while (fid->flag[M_WIDTH] > 5 + i++)
+		write(1, "0x0", 3);
+	while (fid->flag[M_WIDTH] > 3 + i++)
 		write(1, " ", 1);
 	if (fid->flag[MINUS] == 0)
-		write(1, "(nil)", 5);
-	return (ft_max(5, fid->flag[M_WIDTH]));
+		write(1, "0x0", 3);
+	return (ft_max(3, fid->flag[M_WIDTH]));
 }
 
 int	pf_ptr(size_t addr, t_fid *fid)
