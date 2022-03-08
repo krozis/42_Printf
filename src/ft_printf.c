@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 19:34:41 by krozis            #+#    #+#             */
-/*   Updated: 2022/03/08 16:46:52 by krozis           ###   ########.fr       */
+/*   Updated: 2022/03/08 16:50:07 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	get_fid(const char *format, t_fid *fid)
 	}
 	if (*format == '.')
 	{
+		fid->def_pre = TRUE;
 		format++;
 		fid->fid_len++;
 		fid->flag[PREC] = ft_atoi(format);
