@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:18:31 by krozis            #+#    #+#             */
-/*   Updated: 2022/02/17 17:53:27 by krozis           ###   ########.fr       */
+/*   Updated: 2022/03/08 17:10:16 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static void	pf_int_print(int nb, t_fid *fid, int nb_len)
 		write(1, "0", 1);
 		nb_len++;
 	}
-	ft_pf_putnbr(nb);
+	if (!(fid->def_pre && fid->flag[PREC] == 0))
+		ft_pf_putnbr(nb);
 }
 
 static int	pf_int_default(int nb, t_fid *fid, int nb_len)
@@ -98,8 +99,16 @@ int	pf_int(int nb, t_fid *fid)
 	int	nb_len;
 
 	nb_len = ft_nbrlen(nb);
-	if (nb == 0 && fid->flag[PREC] == 0)
-		return (0);
+	if (fid->def_pre && fid->flag[PREC] == 0)
+		nb_len = 0;
+	if (nb == 0 && fid->def_pre == FALSE && fid->flag[M_WIDTH] < 2)
+	{
+		if (fid->flag[PLUS])
+			return (write(1, "+0", 2));
+		else if (fid->flag[SPACE])
+			return (write(1, " 0", 2));
+		return (write(1, "0", 1));
+	}
 	if (nb < 0 || fid->flag[SPACE] || fid->flag[PLUS])
 	{
 		if (fid->flag[ZERO])
