@@ -6,7 +6,7 @@
 /*   By: krozis <krozis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:20:33 by stelie            #+#    #+#             */
-/*   Updated: 2022/02/17 23:41:46 by krozis           ###   ########.fr       */
+/*   Updated: 2022/03/08 16:30:09 by krozis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_fid
 	int		flag[8];
 	char	conv;
 	int		fid_len;
+	t_bool	def_pre;
 }				t_fid;
 
 int		ft_printf(const char *format, ...);
